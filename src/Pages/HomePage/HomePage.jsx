@@ -5,6 +5,7 @@ import Footer from '../../Components/Footer/Footer';
 function HomePage(props) {
     return (
         <div>
+            <NavBar />
 
         </div>
     );
