@@ -24,7 +24,7 @@ function NavBar(props) {
         <div>
             <MDBNavbar expand='lg' light bgColor='light'>
                 <MDBContainer fluid>
-                    <MDBNavbarBrand href='#'>Brand</MDBNavbarBrand>
+                    <MDBNavbarBrand href='#'>White Hot</MDBNavbarBrand>
 
                     <MDBNavbarToggler
                         aria-controls='navbarSupportedContent'
