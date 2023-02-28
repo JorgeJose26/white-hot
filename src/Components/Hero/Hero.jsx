@@ -1,52 +1,75 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from '../../../src/lib/init.firebase'
+import {
+    MDBCard,
+    MDBCardImage,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+    MDBCardLink,
+    MDBListGroup,
+    MDBListGroupItem
+} from 'mdb-react-ui-kit';
+
 
 function Hero(props) {
 
-    const [teams, setTeams] = useState([])
+    const [players, setPlayers] = useState([]);
 
-    const options = {
-        method: 'GET',
-        url: 'https://api-basketball.p.rapidapi.com/teams',
-        params: { league: '12', season: '2021-2022' },
-        headers: {
-            'X-RapidAPI-Key': 'ea0ebde8a3mshbc272f6dcb6a7eap1c3c48jsn1f8876f846df',
-            'X-RapidAPI-Host': 'api-basketball.p.rapidapi.com'
-        }
-    };
+    const playersCollectionRef = collection(db, 'players');
+
+    const queryConstraints = [];
+
+    const q = query(playersCollectionRef, ...queryConstraints);
 
     useEffect(() => {
-        fetchData();
-
-
+        console.log(players);
+        getPlayers();
     }, [])
 
+    function getPlayers() {
+        getDocs(q).then(resp => {
+            console.log(resp.docs);
+            const gamesData = resp.docs.map(doc => ({ data: doc.data(), id: doc.id }));
+            setPlayers(gamesData);
 
-    const fetchData = () => {
-
-        axios.request(options).then(function (response) {
-
-
-            console.log(response.data.response);
-            setTeams(response.data.response[15]);
-            console.log(teams);
-
-        }).catch(function (error) {
-            console.error(error);
-        });
+        }).catch(err => console.log(err.message))
 
     }
 
 
 
 
-
     return (
-        <div>
 
-        </div>
+
+        <MDBCard>
+            <MDBCardImage position='top' alt='...' src='https://mdbootstrap.com/img/new/standard/city/062.webp' />
+            <MDBCardBody>
+                <MDBCardTitle></MDBCardTitle>
+                <MDBCardTitle></MDBCardTitle>
+            </MDBCardBody>
+            <MDBListGroup flush>
+                <MDBListGroupItem>College: </MDBListGroupItem>
+                <MDBListGroupItem></MDBListGroupItem>
+                <MDBListGroupItem>Vestibulum at eros</MDBListGroupItem>
+            </MDBListGroup>
+            <MDBCardBody>
+                <MDBCardLink href='#'>Card link</MDBCardLink>
+                <MDBCardLink href='#'>Card link</MDBCardLink>
+            </MDBCardBody>
+
+        </MDBCard>
     );
+
+
+
+
+
 }
 
 export default Hero;
