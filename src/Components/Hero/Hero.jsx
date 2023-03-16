@@ -46,24 +46,26 @@ function Hero(props) {
 
     return (
 
-
-        <MDBCard>
-            <MDBCardImage position='top' alt='...' src='https://mdbootstrap.com/img/new/standard/city/062.webp' />
-            <MDBCardBody>
-                <MDBCardTitle></MDBCardTitle>
-                <MDBCardTitle></MDBCardTitle>
-            </MDBCardBody>
-            <MDBListGroup flush>
-                <MDBListGroupItem>College: </MDBListGroupItem>
-                <MDBListGroupItem></MDBListGroupItem>
-                <MDBListGroupItem>Vestibulum at eros</MDBListGroupItem>
-            </MDBListGroup>
-            <MDBCardBody>
-                <MDBCardLink href='#'>Card link</MDBCardLink>
-                <MDBCardLink href='#'>Card link</MDBCardLink>
-            </MDBCardBody>
-
-        </MDBCard>
+        <>
+            <div className='card-container'>
+                {players.map(players => <MDBCard>
+                    <MDBCardImage position='top' alt='...' src={players.data.image} />
+                    <MDBCardBody>
+                        <MDBCardTitle>{players.data.name}</MDBCardTitle>
+                    </MDBCardBody>
+                    <MDBListGroup flush>
+                        <MDBListGroupItem>{players.data.position}</MDBListGroupItem>
+                        <MDBListGroupItem>{players.data.height}</MDBListGroupItem>
+                        <MDBListGroupItem>{players.data.weight}</MDBListGroupItem>
+                    </MDBListGroup>
+                    <MDBCardBody>
+                        <MDBCardLink href='#'>Card link</MDBCardLink>
+                        <MDBCardLink href='#'>Card link</MDBCardLink>
+                    </MDBCardBody>
+                </MDBCard>
+                )}
+            </div>
+        </>
     );
 
 
