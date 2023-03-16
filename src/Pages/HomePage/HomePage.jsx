@@ -9,8 +9,8 @@ function HomePage(props) {
         <div>
             <NavBar />
             <MDBContainer>
-                <MDBRow className='mb-3'>
-                    <MDBCol size='4'>
+                <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
+                    <MDBCol>
                         <Hero />
                     </MDBCol>
                 </MDBRow>
