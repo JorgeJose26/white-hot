@@ -15,7 +15,9 @@ import {
     MDBListGroup,
     MDBListGroupItem,
     MDBCol,
-    MDBRow
+    MDBRow,
+    MDBContainer,
+    MDBCardGroup
 
 } from 'mdb-react-ui-kit';
 
@@ -50,32 +52,40 @@ function Hero(props) {
 
     return (
 
+
         <>
 
-            {
-                players.map(players =>
+            <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
+                {
+                    players.map(players =>
+
+                        <MDBCol>
+                            <MDBCard className='h-100 mt-6'>
+                                <MDBCardImage position='top' alt='...' src={players.data.image} />
+                                <MDBCardBody>
+                                    <MDBCardTitle>{players.data.name}</MDBCardTitle>
+                                </MDBCardBody>
+                                <MDBListGroup flush>
+                                    <MDBListGroupItem>{players.data.position}</MDBListGroupItem>
+                                    <MDBListGroupItem>{players.data.height}</MDBListGroupItem>
+                                    <MDBListGroupItem>{players.data.weight}</MDBListGroupItem>
+                                </MDBListGroup>
+                            </MDBCard>
+                        </MDBCol>
 
 
-                    <MDBCard>
-                        <MDBCardImage position='top' alt='...' src={players.data.image} />
-                        <MDBCardBody>
-                            <MDBCardTitle>{players.data.name}</MDBCardTitle>
-                        </MDBCardBody>
-                        <MDBListGroup flush>
-                            <MDBListGroupItem>{players.data.position}</MDBListGroupItem>
-                            <MDBListGroupItem>{players.data.height}</MDBListGroupItem>
-                            <MDBListGroupItem>{players.data.weight}</MDBListGroupItem>
-                        </MDBListGroup>
-                        <MDBCardBody>
-                            <MDBCardLink href='#'>Card link</MDBCardLink>
-                            <MDBCardLink href='#'>Card link</MDBCardLink>
-                        </MDBCardBody>
-                    </MDBCard>
 
 
-                )
-            }
+
+
+                    )
+                }
+            </MDBRow>
+
+
+
         </>
+
 
 
     );

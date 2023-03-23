@@ -8,16 +8,16 @@ function HomePage(props) {
     return (
         <div>
             <NavBar />
+
+
             <MDBContainer>
-                <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-                    <MDBCol>
-                        <Hero />
-                    </MDBCol>
-                </MDBRow>
+
+
+                <Hero />
+
+
+
             </MDBContainer>
-
-
-
         </div>
     );
 }
