@@ -53,14 +53,14 @@ function Hero(props) {
     return (
 
 
-        <>
+        <div className='card-container'>
 
             <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
                 {
                     players.map(players =>
 
                         <MDBCol>
-                            <MDBCard className='h-100 mt-6'>
+                            <MDBCard className='h-100'>
                                 <MDBCardImage position='top' alt='...' src={players.data.image} />
                                 <MDBCardBody>
                                     <MDBCardTitle>{players.data.name}</MDBCardTitle>
@@ -84,7 +84,7 @@ function Hero(props) {
 
 
 
-        </>
+        </div>
 
 
 
