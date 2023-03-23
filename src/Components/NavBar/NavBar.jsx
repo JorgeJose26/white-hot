@@ -4,8 +4,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
-    { name: 'Rosters', href: '#', current: false },
-    { name: 'Team Leaders', href: '#', current: false },
+    { name: 'Roster', href: '/', current: false },
+    { name: 'Team Leaders', href: '/teamleader', current: false },
     { name: 'Standings', href: '#', current: false },
 ]
 
@@ -40,12 +40,12 @@ function NavBar(props) {
                                 <div className="flex flex-shrink-0 items-center">
                                     <img
                                         className="block h-8 w-auto lg:hidden"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                        src="https://firebasestorage.googleapis.com/v0/b/white-hot-faafb.appspot.com/o/Classic35Logo.svg?alt=media&token=a563568d-ac39-4da2-8ebd-f51db854ba8e"
                                         alt="Your Company"
                                     />
                                     <img
                                         className="hidden h-8 w-auto lg:block"
-                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                        src="https://firebasestorage.googleapis.com/v0/b/white-hot-faafb.appspot.com/o/Classic35Logo.svg?alt=media&token=a563568d-ac39-4da2-8ebd-f51db854ba8e"
                                         alt="Your Company"
                                     />
                                 </div>

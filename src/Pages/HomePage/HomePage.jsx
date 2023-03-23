@@ -11,6 +11,7 @@ function HomePage(props) {
             <MDBContainer className='mt-12'>
                 <Hero />
             </MDBContainer>
+            <Footer />
         </div>
     );
 }
